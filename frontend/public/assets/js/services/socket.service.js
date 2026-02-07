@@ -28,6 +28,9 @@ const initSocket = () => {
   }
   
   try {
+    console.log('🐛 DEBUG: ENV.WS_URL =', ENV.WS_URL);
+    console.log('🐛 DEBUG: Connecting to WebSocket at:', ENV.WS_URL || 'http://localhost:8080');
+    
     socket = io(ENV.WS_URL || 'http://localhost:8080', {
       auth: {
         token: token
