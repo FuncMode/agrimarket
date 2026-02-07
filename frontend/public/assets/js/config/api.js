@@ -3,7 +3,7 @@
 
 import ENV from './env.js';
 
-const API_BASE = 'https://agrimarket-production-9247.up.railway.app';
+const API_BASE = 'https://agrimarket-production-04b3.up.railway.app';
 
 const ENDPOINTS = {
   // Auth endpoints
