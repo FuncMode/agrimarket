@@ -28,10 +28,11 @@ const initSocket = () => {
   }
   
   try {
+    const wsUrl = 'wss://agrimarket-production-04b3.up.railway.app'; // Temporary hardcode
     console.log('🐛 DEBUG: ENV.WS_URL =', ENV.WS_URL);
-    console.log('🐛 DEBUG: Connecting to WebSocket at:', ENV.WS_URL || 'http://localhost:8080');
+    console.log('🐛 DEBUG: Using hardcoded URL =', wsUrl);
     
-    socket = io(ENV.WS_URL || 'http://localhost:8080', {
+    socket = io(wsUrl, {
       auth: {
         token: token
       },
