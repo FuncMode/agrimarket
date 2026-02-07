@@ -91,6 +91,13 @@ const setupSocketListeners = () => {
     console.error('Socket connection error:', error.message);
     reconnectAttempts++;
     
+    // Don't show error messages if user is not authenticated
+    const token = getToken();
+    if (!token) {
+      console.warn('Socket connection failed - no auth token. WebSocket features disabled.');
+      return;
+    }
+    
     if (reconnectAttempts >= MAX_RECONNECT_ATTEMPTS) {
       showToast('Connection lost. Please refresh the page.', 'error');
     } else if (reconnectAttempts > 2) {
@@ -105,6 +112,14 @@ const setupSocketListeners = () => {
   
   socket.on('reconnect_failed', () => {
     console.error('Socket reconnection failed');
+    
+    // Don't show error messages if user is not authenticated
+    const token = getToken();
+    if (!token) {
+      console.warn('Socket reconnection failed - no auth token. WebSocket features disabled.');
+      return;
+    }
+    
     showToast('Failed to reconnect. Please refresh the page.', 'error');
   });
 
