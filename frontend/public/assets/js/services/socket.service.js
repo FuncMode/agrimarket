@@ -28,9 +28,7 @@ const initSocket = () => {
   }
   
   try {
-    const wsUrl = 'wss://agrimarket-production-04b3.up.railway.app'; // Temporary hardcode
-    console.log('🐛 DEBUG: ENV.WS_URL =', ENV.WS_URL);
-    console.log('🐛 DEBUG: Using hardcoded URL =', wsUrl);
+    const wsUrl = 'wss://agrimarket-production-04b3.up.railway.app'; // Production WebSocket URL
     
     socket = io(wsUrl, {
       auth: {

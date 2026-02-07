@@ -1565,6 +1565,9 @@ select.form-control:hover {
     max-width: none;
     max-height: none;
     border-radius: 0;
+    top: 0;
+    left: 0;
+    transform: none;
   }
   
   .product-details-content {
@@ -1587,6 +1590,68 @@ select.form-control:hover {
   
   .product-details-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* General Modal Improvements for Mobile */
+  .modal {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: 1rem auto !important;
+    max-height: calc(100vh - 2rem) !important;
+  }
+  
+  .modal-header {
+    padding: 1rem !important;
+    flex-wrap: wrap;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem !important;
+    line-height: 1.3;
+  }
+  
+  .modal-body {
+    padding: 1rem !important;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .modal-footer {
+    padding: 1rem !important;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .modal-footer .btn {
+    flex: 1;
+    min-width: 100px;
+  }
+  
+  /* Form improvements in modals */
+  .modal .form-control {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 0.875rem !important;
+    min-height: 44px;
+  }
+  
+  .modal .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Better button spacing in modals */
+  .modal .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .modal .btn-group .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal .btn-group .btn:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -2067,5 +2132,277 @@ select.form-control:hover {
   
   * {
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============ COMPREHENSIVE MOBILE RESPONSIVENESS ============ */
+
+/* Small devices (landscape phones, 576px and up) to tablets (768px) */
+@media (max-width: 767.98px) {
+  /* Better button touch targets */
+  .btn {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .btn-sm {
+    min-height: 38px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+  
+  /* Form improvements */
+  .form-control, .form-select {
+    min-height: 44px;
+    padding: 0.875rem 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    touch-action: manipulation;
+  }
+  
+  .form-label {
+    font-size: 0.875rem;
+    margin-bottom: 0.375rem;
+  }
+  
+  /* Card improvements */
+  .card {
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+  }
+  
+  /* Table responsiveness */
+  .table-responsive {
+    border: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table {
+    font-size: 0.875rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.5rem 0.375rem;
+    white-space: nowrap;
+  }
+  
+  /* Dropdown improvements */
+  .dropdown-menu {
+    min-width: 200px;
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .dropdown-item {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Navigation improvements */
+  .navbar-nav .nav-link {
+    padding: 0.875rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Alert improvements */
+  .alert {
+    margin-bottom: 1rem;
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius-md);
+  }
+  
+  /* Badge improvements */
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+  }
+  
+  /* Progress bar improvements */
+  .progress {
+    height: 0.75rem;
+  }
+  
+  /* Pagination improvements */
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  
+  .pagination .page-link {
+    padding: 0.5rem 0.75rem;
+    min-width: 44px;
+    text-align: center;
+  }
+}
+
+/* Very small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Full-screen modals on very small screens */
+  .modal,
+  .product-details-modal {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+  
+  .modal-header {
+    padding: 0.875rem 1rem !important;
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+  
+  .modal-title {
+    font-size: 1.125rem !important;
+  }
+  
+  .modal-body {
+    padding: 0.875rem 1rem !important;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .modal-footer {
+    padding: 0.875rem 1rem !important;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modal-footer .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal-footer .btn:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Stack grid layouts */
+  .row {
+    margin: 0;
+  }
+  
+  .col, [class*="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Full width form groups */
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-row > div {
+    width: 100% !important;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Button groups stack vertically */
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    width: 100%;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn-group .btn:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Navbar improvements */
+  .navbar-brand {
+    font-size: 1.125rem;
+  }
+  
+  .navbar-nav {
+    width: 280px;
+  }
+  
+  /* Container improvements */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Typography adjustments */
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.375rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.875rem; }
+  
+  /* Improved touch targets */
+  .btn, 
+  .nav-link,
+  .dropdown-item,
+  .pagination .page-link,
+  input[type="checkbox"],
+  input[type="radio"],
+  .form-check-input {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--color-gray-100);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .modal {
+    border: 2px solid var(--color-dark);
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+  
+  .form-control {
+    border-width: 2px;
+  }
+  
+  .card {
+    border: 1px solid var(--color-gray-400);
   }
 }
